@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="details_data_view_form" model="ir.ui.view">
+            <field name="name">details_data_view_form</field>
+            <field name="model">details.fields</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <field name="follow_up_date"/>
+                        </group>
+                        <group>
+                            <field name="follow_up_text"/>
+                            <field name="relation_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="shipment_data_form_view" model="ir.ui.view">
+            <field name="name">shipment.data.form</field>
+            <field name="model">shipment.data</field>
+            <field name="arch" type="xml">
+<!--options="{'clickable':1}"-->
+                <form string="ModelTitle">
+                    <header>
+                        <button name="open_shipment" type="object" states="close" string="Open"/>
+                        <button name="close_shipment" type="object" states="done,draft" string="Close"/>
+                        <button name="draft_shipment" type="object"  string="Draft"/>
+                        <button name="in_pro_shipment" type="object"  string="In Progress"/>
+                        <field name="state" widget="statusbar" tatusbar_visible="draft,in_progress,done,close"/>
+                    </header>
+                    <sheet>
+
+                        <div name="button_box" position="inside">
+
+                            <button name="action_open_bills"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-archive">
+                                <div class="o_stat_info">
+                                    <field name="bill_count_field" class="o_stat_value"/>
+                                    <span class="o_stat_text">Bill</span>
+                                </div>
+                            </button>
+
+                            <button name="action_open_payments"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-archive">
+                                <div class="o_stat_info">
+                                    <field name="payment_count_field" class="o_stat_value"/>
+                                    <span class="o_stat_text">Payment</span>
+                                </div>
+                            </button>
+
+                            <button name="action_open_po"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-archive">
+                                <div class="o_stat_info">
+                                    <field name="po_count_field" class="o_stat_value"/>
+                                    <span class="o_stat_text">PO</span>
+                                </div>
+                            </button>
+
+                            <button name="action_open_received"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-archive">
+                                <div class="o_stat_info">
+                                    <field name="received_count_field" class="o_stat_value"/>
+                                    <span class="o_stat_text">Received</span>
+                                </div>
+                            </button>
+
+                        </div>
+
+                        <div class="oe_title">
+                            <label for="seq_no"/>
+                            <h1>
+                                <field name="seq_no" placeholder="Title" attrs="{'readonly': [('id', '!=', False)]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="rec_id_save"/>
+                                <field name="get_notification_ids" invisible="1"/>
+                                <field name="suppliers"/>
+                                <field name="consignee"/>
+                                <field name="po"/>
+                                <field name="po_amount"/>
+                            </group>
+                            <group>
+                                <field name="sap"/>
+                                <field name="po_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="pi"/>
+                                <field name="pi_amount"/>
+                            </group>
+                            <group>
+                                <field name="pi_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="final_inv_no"/>
+                                <field name="inv_amount"/>
+                            </group>
+                            <group>
+                                <field name="inv_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="bank_transfer_amount"/>
+                                <field name="value_date"/>
+                                <field name="total_transfer"/>
+                            </group>
+                            <group>
+                                <field name="bank_name_branch"/>
+                                <field name="insurance"/>
+                                <field name="difference"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="item_and_qty"/>
+                                <field name="payment_condition"/>
+                            </group>
+                            <group>
+                                <field name="incoterms"/>
+                                <field name="project_name"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="acid_no"/>
+                                <field name="importer_id"/>
+                            </group>
+                            <group>
+                                <field name="exporter_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="for_warder"/>
+                                <field name="shipping_amount"/>
+                                <field name="shipping_line"/>
+                                <field name="container_size"/>
+                                <field name="container_no"/>
+                                <field name="seal_no"/>
+                            </group>
+                            <group>
+                                <field name="type_of_freight"/>
+                                <field name="vessel"/>
+                                <field name="release_letter"/>
+                                <field name="gross_weight"/>
+                                <field name="free_days"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="mbl"/>
+                                <field name="pol"/>
+                            </group>
+                            <group>
+                                <field name="hbl"/>
+                                <field name="pod"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="transit_time"/>
+                                <field name="free_of_demurrage"/>
+                            </group>
+                            <group>
+                                <field name="loading_date"/>
+                                <field name="cut_off_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="etd"/>
+                                <field name="docs_tracking_no"/>
+                            </group>
+                            <group>
+                                <field name="eta"/>
+                                <field name="estimated_delivery"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="received_date_original_doc"/>
+                                <field name="send_date_customs_broker"/>
+                                <field name="tell_date_customs_broker"/>
+                                <field name="release_date_shipment"/>
+                                <field name="permission_date_shipment"/>
+                            </group>
+                            <group>
+                                <field name="send_date_bank_doc"/>
+                                <field name="received_date_bank_doc"/>
+                                <field name="issuance_date_cheque"/>
+                                <field name="appointment_date"/>
+                            </group>
+                        </group>
+                        <notebook position="inside">
+                            <page string="Details">
+                                <field name="details_process_tree">
+                                    <tree string="Tree String">
+                                        <field name="follow_up_date"/>
+                                        <field name="follow_up_text"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="shipment_data_tree_view" model="ir.ui.view">
+            <field name="name">shipment.data.tree</field>
+            <field name="model">shipment.data</field>
+            <field name="arch" type="xml">
+                <tree string="Shipment">
+                    <field name="seq_no"/>
+                    <!--                    <field name="example_field"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="ModelName_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">ProjectName.ModelName.search</field>-->
+        <!--            <field name="model">ProjectName.ModelName</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="shipment_data_window" model="ir.actions.act_window">
+            <field name="name">Shipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipment.data</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Shipment.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Shipment"
+                  id="shipment_menu"
+                  parent="purchase.menu_purchase_root"
+                  action="shipment_data_window"
+                  sequence="5"/>
+
+    </data>
+</odoo>

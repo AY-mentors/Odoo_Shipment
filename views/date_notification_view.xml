@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="date_notification_form_view" model="ir.ui.view">
+            <field name="name">date.notification.form</field>
+            <field name="model">date.notification</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label for="shipment_name"/>
+                            <h1>
+                                <field name="shipment_name" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+<!--                                <field name="shipment_id"/>-->
+                                <field name="received_date_original_doc"/>
+                                <field name="send_date_bank_doc"/>
+                                <field name="received_date_bank_doc"/>
+                                <field name="send_date_customs_broker"/>
+                                <field name="tell_date_customs_broker"/>
+                                <field name="issuance_date_cheque"/>
+                                <field name="release_date_shipment"/>
+                                <field name="appointment_date"/>
+                                <field name="inv_date"/>
+                            </group>
+                            <group>
+                                <field name="permission_date_shipment"/>
+                                <field name="loading_date"/>
+                                <field name="cut_off_date"/>
+                                <field name="etd"/>
+                                <field name="eta"/>
+                                <field name="estimated_delivery"/>
+                                <field name="po_date"/>
+                                <field name="pi_date"/>
+                                <field name="value_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="date_notification_tree_view" model="ir.ui.view">
+            <field name="name">date.notification.tree</field>
+            <field name="model">date.notification</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="received_date_original_doc"/>
+                    <field name="create_date"/>
+                    <!--                            <field name="example_field"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="date_notification_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">ProjectName.date_notification.search</field>-->
+        <!--            <field name="model">ProjectName.date_notification</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="date_notification_act_window" model="ir.actions.act_window">
+            <field name="name">Set Notification</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">date.notification</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Set Notification"
+                  id="date_notification_menu"
+                  parent="purchase.menu_purchase_root"
+                  action="date_notification_act_window"
+                  sequence="6"/>
+
+    </data>
+</odoo>

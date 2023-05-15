@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_shipment_data,access.shipment.data,elnasr_shipment.model_shipment_data,base.group_user,1,1,1,1
+access_details_data,access.details.data,elnasr_shipment.model_details_data,base.group_user,1,1,1,1
+access_details_fields,access.details.fields,elnasr_shipment.model_details_fields,base.group_user,1,1,1,1
+access_date_notification,access.date.notification,elnasr_shipment.model_date_notification,base.group_user,1,1,1,1
